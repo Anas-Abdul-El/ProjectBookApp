@@ -1,0 +1,14 @@
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\bin\Debug\ProjectBookApp.exe.config
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\bin\Debug\ProjectBookApp.exe
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\bin\Debug\ProjectBookApp.pdb
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.csproj.AssemblyReference.cache
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.AddBooks.resources
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.Form1.resources
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.Properties.Resources.resources
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.csproj.GenerateResource.cache
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.csproj.CoreCompileInputs.cache
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.exe
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.pdb
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.DeleteBooks.resources
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.Report.resources
+C:\Users\ansab\source\repos\ProjectBookApp\ProjectBookApp\obj\Debug\ProjectBookApp.UpdateBooks.resources
