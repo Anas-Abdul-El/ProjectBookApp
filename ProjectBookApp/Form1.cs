@@ -22,11 +22,11 @@ namespace ProjectBookApp
 
         }
 
-        private void LoadControl(UserControl control)
+        private void LoadControl(UserControl controls)
         {
             panelMain.Controls.Clear();
-            control.Dock = DockStyle.Fill;
-            panelMain.Controls.Add(control);
+            controls.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(controls);
         }
 
         private void btn_add_books_panel_Click(object sender, EventArgs e)
