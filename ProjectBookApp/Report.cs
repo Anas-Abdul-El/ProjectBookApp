@@ -16,5 +16,10 @@ namespace ProjectBookApp
         {
             InitializeComponent();
         }
+
+        private void Report_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
