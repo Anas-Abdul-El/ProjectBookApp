@@ -28,18 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Delete_list = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // Delete_list
+            // 
+            this.Delete_list.FormattingEnabled = true;
+            this.Delete_list.Location = new System.Drawing.Point(34, 46);
+            this.Delete_list.Name = "Delete_list";
+            this.Delete_list.Size = new System.Drawing.Size(258, 225);
+            this.Delete_list.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Choose The Book You Want to Delete";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(34, 292);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 31);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Delete";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // DeleteBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Delete_list);
             this.Name = "DeleteBooks";
-            this.Size = new System.Drawing.Size(1025, 696);
+            this.Size = new System.Drawing.Size(350, 353);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox Delete_list;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

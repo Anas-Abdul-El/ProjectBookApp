@@ -79,7 +79,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(201, 299);
+            this.button2.Location = new System.Drawing.Point(198, 301);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(167, 33);
             this.button2.TabIndex = 16;
@@ -88,7 +88,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(29, 301);
+            this.button1.Location = new System.Drawing.Point(35, 301);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 31);
             this.button1.TabIndex = 15;
@@ -97,28 +97,28 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(125, 235);
+            this.numericUpDown1.Location = new System.Drawing.Point(118, 235);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(243, 20);
             this.numericUpDown1.TabIndex = 14;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(125, 173);
+            this.textBox3.Location = new System.Drawing.Point(118, 173);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(243, 20);
             this.textBox3.TabIndex = 13;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(125, 107);
+            this.textBox2.Location = new System.Drawing.Point(118, 104);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(243, 20);
             this.textBox2.TabIndex = 12;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 47);
+            this.textBox1.Location = new System.Drawing.Point(118, 47);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(243, 20);
             this.textBox1.TabIndex = 11;
