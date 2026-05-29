@@ -40,6 +40,7 @@
             this.Delete_list.Name = "Delete_list";
             this.Delete_list.Size = new System.Drawing.Size(258, 225);
             this.Delete_list.TabIndex = 0;
+            this.Delete_list.SelectedIndexChanged += new System.EventHandler(this.Delete_list_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -58,6 +59,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DeleteBooks
             // 
@@ -68,6 +70,7 @@
             this.Controls.Add(this.Delete_list);
             this.Name = "DeleteBooks";
             this.Size = new System.Drawing.Size(350, 353);
+            this.Load += new System.EventHandler(this.DeleteBooks_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

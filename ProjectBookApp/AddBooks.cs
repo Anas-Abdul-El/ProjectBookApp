@@ -36,7 +36,8 @@ namespace ProjectBookApp
                     title = txt_title.Text,
                     author = txt_author.Text,
                     quantity = txt_quantity.Value,
-                    isBorrowed = true
+                    isbn = txt_isbn.Text,
+                    isBorrowed = false
                 };
 
                 var response = await client.PostAsJsonAsync(
