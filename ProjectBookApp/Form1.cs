@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,6 +48,22 @@ namespace ProjectBookApp
         private void reports_btn_panel_Click(object sender, EventArgs e)
         {
             LoadControl(new Report());
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void display_btn_Click(object sender, EventArgs e)
+        {
+            LoadControl(new Books());
         }
     }
 }

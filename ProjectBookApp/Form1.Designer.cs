@@ -34,7 +34,8 @@
             this.btn_update_panel = new System.Windows.Forms.Button();
             this.btn_add_books_panel = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.display_btn = new System.Windows.Forms.Button();
+            this.welcome = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.display_btn);
             this.panel1.Controls.Add(this.reports_btn_panel);
             this.panel1.Controls.Add(this.btn_del_panel);
             this.panel1.Controls.Add(this.btn_update_panel);
@@ -61,7 +63,7 @@
             this.reports_btn_panel.FlatAppearance.BorderSize = 0;
             this.reports_btn_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reports_btn_panel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.reports_btn_panel.Location = new System.Drawing.Point(0, 235);
+            this.reports_btn_panel.Location = new System.Drawing.Point(0, 278);
             this.reports_btn_panel.Margin = new System.Windows.Forms.Padding(0);
             this.reports_btn_panel.Name = "reports_btn_panel";
             this.reports_btn_panel.Size = new System.Drawing.Size(145, 59);
@@ -79,7 +81,7 @@
             this.btn_del_panel.FlatAppearance.BorderSize = 0;
             this.btn_del_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_del_panel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_del_panel.Location = new System.Drawing.Point(0, 176);
+            this.btn_del_panel.Location = new System.Drawing.Point(0, 219);
             this.btn_del_panel.Margin = new System.Windows.Forms.Padding(0);
             this.btn_del_panel.Name = "btn_del_panel";
             this.btn_del_panel.Size = new System.Drawing.Size(145, 59);
@@ -96,7 +98,7 @@
             this.btn_update_panel.FlatAppearance.BorderSize = 0;
             this.btn_update_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_update_panel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_update_panel.Location = new System.Drawing.Point(0, 120);
+            this.btn_update_panel.Location = new System.Drawing.Point(0, 160);
             this.btn_update_panel.Margin = new System.Windows.Forms.Padding(0);
             this.btn_update_panel.Name = "btn_update_panel";
             this.btn_update_panel.Size = new System.Drawing.Size(145, 59);
@@ -113,7 +115,7 @@
             this.btn_add_books_panel.FlatAppearance.BorderSize = 0;
             this.btn_add_books_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_books_panel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_add_books_panel.Location = new System.Drawing.Point(-3, 69);
+            this.btn_add_books_panel.Location = new System.Drawing.Point(0, 103);
             this.btn_add_books_panel.Margin = new System.Windows.Forms.Padding(0);
             this.btn_add_books_panel.Name = "btn_add_books_panel";
             this.btn_add_books_panel.Size = new System.Drawing.Size(145, 57);
@@ -124,22 +126,40 @@
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.label1);
+            this.panelMain.Controls.Add(this.welcome);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(145, 0);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(789, 470);
             this.panelMain.TabIndex = 1;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
-            // label1
+            // display_btn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(146, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(436, 107);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome";
+            this.display_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.display_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.display_btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.display_btn.FlatAppearance.BorderSize = 0;
+            this.display_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.display_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.display_btn.Location = new System.Drawing.Point(0, 46);
+            this.display_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.display_btn.Name = "display_btn";
+            this.display_btn.Size = new System.Drawing.Size(145, 57);
+            this.display_btn.TabIndex = 6;
+            this.display_btn.Text = "Books";
+            this.display_btn.UseVisualStyleBackColor = false;
+            this.display_btn.Click += new System.EventHandler(this.display_btn_Click);
+            // 
+            // welcome
+            // 
+            this.welcome.AutoSize = true;
+            this.welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcome.Location = new System.Drawing.Point(167, 53);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(436, 107);
+            this.welcome.TabIndex = 0;
+            this.welcome.Text = "Welcome";
             // 
             // Form1
             // 
@@ -152,6 +172,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Silver;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
@@ -167,7 +188,8 @@
         private System.Windows.Forms.Button btn_update_panel;
         private System.Windows.Forms.Button reports_btn_panel;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button display_btn;
+        private System.Windows.Forms.Label welcome;
     }
 }
 

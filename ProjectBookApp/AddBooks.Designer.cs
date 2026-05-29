@@ -28,46 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txt_title = new System.Windows.Forms.TextBox();
+            this.txt_author = new System.Windows.Forms.TextBox();
+            this.txt_isbn = new System.Windows.Forms.TextBox();
+            this.txt_quantity = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txt_title
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
-            this.textBox1.TabIndex = 0;
+            this.txt_title.Location = new System.Drawing.Point(89, 38);
+            this.txt_title.Name = "txt_title";
+            this.txt_title.Size = new System.Drawing.Size(243, 20);
+            this.txt_title.TabIndex = 0;
             // 
-            // textBox2
+            // txt_author
             // 
-            this.textBox2.Location = new System.Drawing.Point(89, 98);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 1;
+            this.txt_author.Location = new System.Drawing.Point(89, 98);
+            this.txt_author.Name = "txt_author";
+            this.txt_author.Size = new System.Drawing.Size(243, 20);
+            this.txt_author.TabIndex = 1;
             // 
-            // textBox3
+            // txt_isbn
             // 
-            this.textBox3.Location = new System.Drawing.Point(89, 164);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(243, 20);
-            this.textBox3.TabIndex = 2;
+            this.txt_isbn.Location = new System.Drawing.Point(89, 164);
+            this.txt_isbn.Name = "txt_isbn";
+            this.txt_isbn.Size = new System.Drawing.Size(243, 20);
+            this.txt_isbn.TabIndex = 2;
             // 
-            // numericUpDown1
+            // txt_quantity
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(89, 228);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(243, 20);
-            this.numericUpDown1.TabIndex = 3;
+            this.txt_quantity.Location = new System.Drawing.Point(89, 228);
+            this.txt_quantity.Name = "txt_quantity";
+            this.txt_quantity.Size = new System.Drawing.Size(243, 20);
+            this.txt_quantity.TabIndex = 3;
             // 
             // button1
             // 
@@ -77,6 +77,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -86,6 +87,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -133,14 +135,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_quantity);
+            this.Controls.Add(this.txt_isbn);
+            this.Controls.Add(this.txt_author);
+            this.Controls.Add(this.txt_title);
             this.Name = "AddBooks";
             this.Size = new System.Drawing.Size(381, 405);
             this.Load += new System.EventHandler(this.AddBooks_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,10 +150,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox txt_title;
+        private System.Windows.Forms.TextBox txt_author;
+        private System.Windows.Forms.TextBox txt_isbn;
+        private System.Windows.Forms.NumericUpDown txt_quantity;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
