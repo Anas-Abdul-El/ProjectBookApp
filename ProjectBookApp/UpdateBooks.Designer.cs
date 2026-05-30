@@ -41,9 +41,10 @@
             this.choose_book = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_isBorrowed = new System.Windows.Forms.CheckBox();
-            this.txt_id = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txt_id = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_id)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -158,14 +159,6 @@
             this.txt_isBorrowed.Text = "isBorrowed";
             this.txt_isBorrowed.UseVisualStyleBackColor = true;
             // 
-            // txt_id
-            // 
-            this.txt_id.Location = new System.Drawing.Point(512, 69);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(243, 20);
-            this.txt_id.TabIndex = 24;
-            this.txt_id.TextChanged += new System.EventHandler(this.txt_id_TextChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -175,12 +168,19 @@
             this.label6.TabIndex = 25;
             this.label6.Text = "id";
             // 
+            // txt_id
+            // 
+            this.txt_id.Location = new System.Drawing.Point(512, 70);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(243, 20);
+            this.txt_id.TabIndex = 26;
+            // 
             // UpdateBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_id);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_isBorrowed);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.choose_book);
@@ -198,6 +198,7 @@
             this.Size = new System.Drawing.Size(817, 439);
             this.Load += new System.EventHandler(this.UpdateBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_id)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +219,7 @@
         private System.Windows.Forms.ListBox choose_book;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox txt_isBorrowed;
-        private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown txt_id;
     }
 }

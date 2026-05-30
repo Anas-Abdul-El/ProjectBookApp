@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -23,11 +24,22 @@ namespace ProjectBookApp
         {
             var client = new HttpClient();
 
-            var books = await client.GetFromJsonAsync<List<Book>>(
-                "https://localhost:7152/api/Books"
-            );
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:7152/api/Books");
 
-            return books;
+            var response = await client.SendAsync(request);
+
+
+            if (response.StatusCode != System.Net.HttpStatusCode.NoContent)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                var books = JsonSerializer.Deserialize<List<Book>>(data);
+                return books;
+            }
+            else
+            {
+                return new List<Book>();
+            }
+
         }
         private async void Report_Load(object sender, EventArgs e)
         {
