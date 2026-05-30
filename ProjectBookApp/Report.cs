@@ -4,9 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ProjectBookApp
 {
@@ -16,10 +19,54 @@ namespace ProjectBookApp
         {
             InitializeComponent();
         }
-
-        private void Report_Load(object sender, EventArgs e)
+        private async Task<List<Book>> GetBooks()
         {
+            var client = new HttpClient();
+
+            var books = await client.GetFromJsonAsync<List<Book>>(
+                "https://localhost:7152/api/Books"
+            );
+
+            return books;
+        }
+        private async void Report_Load(object sender, EventArgs e)
+        {
+            List<Book> books = await GetBooks();
+
+            int totalBooks = books.Count;
+
+            int totalAuthor = books
+                .GroupBy(b => b.author)
+                .Select(g => g.First())
+                .ToList().Count;
+
+            int isBorrowedBooks = books.Where(b => b.isBorrowed).ToList().Count;
+            int available = totalBooks - isBorrowedBooks;
+
+            txt_total.Text = "" + totalBooks;
+            txt_author.Text = "" + totalAuthor;
+            txt_borrowed.Text = "" + isBorrowedBooks;
+            txt_available.Text = "" + available;
+
+
+            chart1.Series.Clear();
+            chart1.Titles.Clear();
+
+            chart1.Titles.Add("Books status");
+
+            Series series = new Series("Books")
+            {
+                ChartType = SeriesChartType.Pie
+            };
+
+
+            series.Points.AddXY("Borrowed", isBorrowedBooks);
+            series.Points.AddXY("Available", available);
+
+            chart1.Series.Add(series);
 
         }
+
+        
     }
 }

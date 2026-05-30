@@ -41,13 +41,15 @@
             this.choose_book = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_isBorrowed = new System.Windows.Forms.CheckBox();
+            this.txt_id = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txt_quantity)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(412, 242);
+            this.label4.Location = new System.Drawing.Point(429, 256);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 20;
@@ -56,7 +58,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(412, 178);
+            this.label3.Location = new System.Drawing.Point(429, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 19;
@@ -65,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(412, 112);
+            this.label2.Location = new System.Drawing.Point(429, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 18;
@@ -74,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(412, 52);
+            this.label1.Location = new System.Drawing.Point(429, 117);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 17;
@@ -82,7 +84,7 @@
             // 
             // clear_btn
             // 
-            this.clear_btn.Location = new System.Drawing.Point(571, 335);
+            this.clear_btn.Location = new System.Drawing.Point(588, 337);
             this.clear_btn.Name = "clear_btn";
             this.clear_btn.Size = new System.Drawing.Size(167, 33);
             this.clear_btn.TabIndex = 16;
@@ -92,7 +94,7 @@
             // 
             // update_btn
             // 
-            this.update_btn.Location = new System.Drawing.Point(408, 335);
+            this.update_btn.Location = new System.Drawing.Point(425, 337);
             this.update_btn.Name = "update_btn";
             this.update_btn.Size = new System.Drawing.Size(157, 31);
             this.update_btn.TabIndex = 15;
@@ -102,28 +104,28 @@
             // 
             // txt_quantity
             // 
-            this.txt_quantity.Location = new System.Drawing.Point(495, 240);
+            this.txt_quantity.Location = new System.Drawing.Point(512, 254);
             this.txt_quantity.Name = "txt_quantity";
             this.txt_quantity.Size = new System.Drawing.Size(243, 20);
             this.txt_quantity.TabIndex = 14;
             // 
             // txt_isbn
             // 
-            this.txt_isbn.Location = new System.Drawing.Point(495, 178);
+            this.txt_isbn.Location = new System.Drawing.Point(512, 204);
             this.txt_isbn.Name = "txt_isbn";
             this.txt_isbn.Size = new System.Drawing.Size(243, 20);
             this.txt_isbn.TabIndex = 13;
             // 
             // txt_author
             // 
-            this.txt_author.Location = new System.Drawing.Point(495, 109);
+            this.txt_author.Location = new System.Drawing.Point(512, 155);
             this.txt_author.Name = "txt_author";
             this.txt_author.Size = new System.Drawing.Size(243, 20);
             this.txt_author.TabIndex = 12;
             // 
             // txt_title
             // 
-            this.txt_title.Location = new System.Drawing.Point(495, 52);
+            this.txt_title.Location = new System.Drawing.Point(512, 117);
             this.txt_title.Name = "txt_title";
             this.txt_title.Size = new System.Drawing.Size(243, 20);
             this.txt_title.TabIndex = 11;
@@ -149,17 +151,36 @@
             // txt_isBorrowed
             // 
             this.txt_isBorrowed.AutoSize = true;
-            this.txt_isBorrowed.Location = new System.Drawing.Point(415, 296);
+            this.txt_isBorrowed.Location = new System.Drawing.Point(432, 298);
             this.txt_isBorrowed.Name = "txt_isBorrowed";
             this.txt_isBorrowed.Size = new System.Drawing.Size(78, 17);
             this.txt_isBorrowed.TabIndex = 23;
             this.txt_isBorrowed.Text = "isBorrowed";
             this.txt_isBorrowed.UseVisualStyleBackColor = true;
             // 
+            // txt_id
+            // 
+            this.txt_id.Location = new System.Drawing.Point(512, 69);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(243, 20);
+            this.txt_id.TabIndex = 24;
+            this.txt_id.TextChanged += new System.EventHandler(this.txt_id_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(429, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "id";
+            // 
             // UpdateBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txt_id);
             this.Controls.Add(this.txt_isBorrowed);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.choose_book);
@@ -197,5 +218,7 @@
         private System.Windows.Forms.ListBox choose_book;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox txt_isBorrowed;
+        private System.Windows.Forms.TextBox txt_id;
+        private System.Windows.Forms.Label label6;
     }
 }

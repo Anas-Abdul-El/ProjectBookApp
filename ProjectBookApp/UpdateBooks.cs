@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 
 namespace ProjectBookApp
@@ -22,17 +24,28 @@ namespace ProjectBookApp
         }
 
         private async Task<List<Book>> GetBooks()
-        {
+        { 
             var client = new HttpClient();
 
-            var books = await client.GetFromJsonAsync<List<Book>>(
-                "https://localhost:7152/api/Books"
-            );
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:7152/api/Books");
 
-            return books;
+            var response = await client.SendAsync(request);
+
+
+            if (response.StatusCode != System.Net.HttpStatusCode.NoContent)
+            {
+            var data = await response.Content.ReadAsStringAsync();
+                var books = JsonSerializer.Deserialize<List<Book>>(data);
+                return books;
+            }
+            else 
+            {
+                return new List<Book>();
+            }
+
         }
 
-        private async void UpdateBooks_Load(object sender, EventArgs e)
+        private async void LoadList()
         {
             List<Book> books = await GetBooks();
             for (int i = 0; i < books.Count; i++)
@@ -41,11 +54,19 @@ namespace ProjectBookApp
             }
         }
 
+        private async void UpdateBooks_Load(object sender, EventArgs e)
+        {
+            LoadList();
+        }
+
+
+
         private async void choose_book_SelectedIndexChanged(object sender, EventArgs e)
-        { 
+        {
             bookId = choose_book.SelectedIndex;
             List<Book> books = await GetBooks();
 
+            txt_id.Text = books[bookId].bookId.ToString();
             txt_title.Text = books[bookId].title;
             txt_isbn.Text = books[bookId].isbn;
             txt_quantity.Value = books[bookId].quantity;
@@ -58,28 +79,55 @@ namespace ProjectBookApp
             var client = new HttpClient();
             List<Book> books = await GetBooks();
 
-            if (txt_title.Text != String.Empty && txt_isbn.Text != String.Empty && txt_author.Text != String.Empty && txt_quantity.Value != 0)
+            if (txt_id.Text != String.Empty && txt_title.Text != String.Empty && txt_isbn.Text != String.Empty && txt_author.Text != String.Empty && txt_quantity.Value != 0)
             {
-                var book = new
+                try
                 {
-                    bookId = books[bookId].bookId,
-                    title = txt_title.Text,
-                    author = txt_author.Text,
-                    quantity = txt_quantity.Value,
-                    isbn = txt_isbn.Text,
-                    isBorrowed = txt_isBorrowed.Checked
-                };
+                    var book = new
+                    {
+                        bookId = txt_id.Text,
+                        title = txt_title.Text,
+                        author = txt_author.Text,
+                        quantity = txt_quantity.Value,
+                        isbn = txt_isbn.Text,
+                        isBorrowed = txt_isBorrowed.Checked
+                    };
 
-                var response = await client.PutAsJsonAsync(
-                    $"https://localhost:7152/api/Books/{book.bookId}",
-                    book
-                );
+                    var request = new HttpRequestMessage(HttpMethod.Put, $"https://localhost:7152/api/Books/{book.bookId}");
+                    request.Content = new StringContent(JsonSerializer.Serialize(book), System.Text.Encoding.UTF8, "application/json");
 
-                if (response.IsSuccessStatusCode)
-                    MessageBox.Show("Updated successfully");
+                    var response = await client.SendAsync(request);
+
+                    if (response.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        MessageBox.Show("Book not found (404).", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (response.StatusCode == HttpStatusCode.InternalServerError)
+                    {
+                        MessageBox.Show("Server error (500). Please try again later.", "Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show($"Failed to update book: {(int)response.StatusCode} {response.ReasonPhrase}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    MessageBox.Show($"Network error while sending update: {ex.Message}", "Network Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
             }
-
-            
 
             txt_title.Text = String.Empty;
             txt_isbn.Text = String.Empty;
@@ -93,6 +141,11 @@ namespace ProjectBookApp
             txt_isbn.Text = String.Empty;
             txt_quantity.Value = txt_quantity.Minimum;
             txt_author.Text = String.Empty;
+        }
+
+        private void txt_id_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
